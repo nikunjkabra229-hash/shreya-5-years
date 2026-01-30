@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Years With Shreya ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff5fa2, #000000);
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      animation: fadeIn 1.8s ease-in-out;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.2rem;
+      color: #ffd1e8;
+    }
+    h2 {
+      font-weight: 500;
+      margin-top: 10px;
+      color: #ffe6f2;
+    }
+    .heart {
+      font-size: 2.8rem;
+      animation: beat 1.2s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+    .card {
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      border-radius: 22px;
+      padding: 28px;
+      margin: 30px 0;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .love-note {
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+    .timeline {
+      text-align: left;
+    }
+    .timeline li {
+      margin: 12px 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .photo-card {
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .caption {
+      padding: 15px;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, #ff5fa2, #000);
+      color: #fff;
+    }
+    button {
+      background: #ff5fa2;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e84b92;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: #ffe6f2;
+    }
+      .letter {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      text-align: left;
+    }
+    .counter {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ff5fa2;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div id="lock" style="position:fixed;inset:0;background:linear-gradient(135deg,#000,#ff5fa2);display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#fff;padding:30px;border-radius:20px;max-width:320px;width:90%;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.4);">
+    <h2 style="color:#ff5fa2;font-family:Pacifico;">Only For Shreya 💖</h2>
+    <p style="color:#333;">Enter our secret word</p>
+    <input id="pwd" type="password" placeholder="Password" style="padding:12px;width:100%;border-radius:10px;border:1px solid #ccc;">
+    <button style="margin-top:15px;width:100%;" onclick="unlock()">Enter</button>
+  </div>
+</div>
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div class="container fade">
+
+    <h1>Happy 5th Anniversary</h1>
+    <div class="heart">❤️</div>
+    <h2>Shreya Joshi, My Forever Person</h2>
+
+    <div class="card love-note">
+      <p>
+        Five years ago, I didn’t know that a simple beginning would turn into the most
+        beautiful chapter of my life. With you, love became home, laughter became easy,
+        and even silence felt comforting.
+      </p>
+      <p>
+        Shreya, thank you for choosing me every day for the last 5 years.
+        I still choose you — today, tomorrow, always. 💖
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>We’ve Been Us For 🕰️</h3>
+      <div class="counter" id="counter"></div>
+    </div>
+
+    <div class="card timeline">
+      <h3>Our Story So Far ✨</h3>
+      <ul>
+        <li><strong>Year 1:</strong> Nervous smiles, endless talks, and falling without fear</li>
+        <li><strong>Year 2:</strong> Becoming each other’s safe place</li>
+        <li><strong>Year 3:</strong> Learning, growing, and holding on tighter</li>
+        <li><strong>Year 4:</strong> Standing together through everything</li>
+        <li><strong>Year 5:</strong> Deep love, real love, *our* love ❤️</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Only Us 📸</h3>
+      <p>Moments that tell our story better than words ever could.</p>
+      <div class="gallery">
+        <div class="photo-card">
+          <img src="photo1.jpg" alt="Our Memory 1">
+          <div class="caption">This was the day I realised loving you was effortless.</div>
+        </div>
+        <div class="photo-card">
+          <img src="photo2.jpg" alt="Our Memory 2">
+          <div class="caption">Every smile here reminds me why I fell for you.</div>
+        </div>
+        <div class="photo-card">
+          <img src="photo3.jpg" alt="Our Memory 3">
+          <div class="caption">No matter where we are, with you feels like home.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>A Letter From My Heart 💌</h3>
+      <div class="letter">
+        <p>
+          Dear Shreya,<n
+          Five years with you feel like both a lifetime and a blink.
+          You saw me grow, fail, learn, and become better — simply by loving me.
+        </p>
+        <p>
+          In a world that keeps changing, you stayed constant.
+          Your presence calms my chaos, your smile heals parts of me I never spoke about.
+        </p>
+        <p>
+          If I had one life and a thousand choices,
+          I would still choose you — every single time.
+        </p>
+        <p>
+          Happy 5 years, my love.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>A Promise To You 🤍</h3>
+      <p>
+        I promise to love you on easy days and harder ones,
+        to support your dreams, protect your heart,
+        and walk beside you — always.
+      </p>
+      <button onclick="alert('Happy 5 Years, Shreya ❤️ I love you endlessly')">Click Me</button>
+    </div>
+
+    <footer>
+      Made only for Shreya Joshi 💕 | 5 years of us
+    </footer>
+  </div>
+  <script>
+    const startDate = new Date('2019-01-01'); // CHANGE to your anniversary date
+    const today = new Date();
+    const diff = today - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
+  </script>
+  <script>
+    function unlock() {
+      const pass = document.getElementById('pwd').value;
+      if (pass.toLowerCase() === 'shreya') { // CHANGE password here
+        document.getElementById('lock').style.display = 'none';
+      } else {
+        alert('This page is only for Shreya 💔');
+      }
+    }
+
+    const startDate = new Date('2019-01-01'); // CHANGE anniversary date
+    const today = new Date();
+    const diff = today - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
+  </script>
+</body>
+</html>

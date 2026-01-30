@@ -224,15 +224,15 @@
     document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
   </script>
   <script>
-    function unlock() {
-      const pass = document.getElementById('pwd').value;
-      if (pass.toLowerCase() === 'shery') { // CHANGE password here
-        document.getElementById('lock').style.display = 'none';
-      } else {
-        alert('This page is only for Shreya 💔');
-      }
+  function unlock() {
+    const pass = document.getElementById('pwd').value.trim().toLowerCase();
+    if (pass === 'shreya') { // change password if you want
+      document.getElementById('lock').style.display = 'none';
+    } else {
+      alert('This page is only for Shreya 💔');
     }
-
+  }
+</script>
     const startDate = new Date('2021-03-01'); // CHANGE anniversary date
     const today = new Date();
     const diff = today - startDate;

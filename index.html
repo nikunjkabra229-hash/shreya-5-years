@@ -77,6 +77,43 @@
       height: 260px;
       object-fit: cover;
     }
+    .photo-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.photo-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  backdrop-filter: blur(3px);
+}
+
+.photo-card.active .overlay {
+  opacity: 1;
+}
+
+.photo-card.active img {
+  transform: scale(1.05);
+}
     .photo-card video {
   width: 100%;
   height: 260px;
@@ -198,18 +235,78 @@
     This moment lives rent-free in my heart.
   </div>
 </div>
-        <div class="photo-card">
-          <img src="photo1.jpg" alt="Our Memory 1">
-          <div class="caption">This was the day I realised loving you was effortless.</div>
-        </div>
-        <div class="photo-card">
-          <img src="photo2.jpg" alt="Our Memory 2">
-          <div class="caption">Every smile here reminds me why I fell for you.</div>
-        </div>
-        <div class="photo-card">
-          <img src="photo3.jpg" alt="Our Memory 3">
-          <div class="caption">No matter where we are, with you feels like home.</div>
-        </div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo1.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo2.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo3.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo4.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo5.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo6.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo7.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo8.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo9.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo10.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo11.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
+        <div class="photo-card" onclick="toggleText(this)">
+  <img src="photo12.jpg" alt="Our Memory">
+  <div class="overlay">
+    <p>This was the day I realised loving you was effortless.</p>
+  </div>
+</div>
       </div>
     </div>
 
@@ -272,5 +369,10 @@
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
   </script>
+  <script>
+  function toggleText(card) {
+    card.classList.toggle('active');
+  }
+</script>
 </body>
 </html>

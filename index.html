@@ -90,27 +90,6 @@
   transition: transform 0.5s ease;
 }
 
-.photo-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  backdrop-filter: blur(3px);
-}
-
-.photo-card.active .overlay {
-  opacity: 1;
-}
-
 .photo-card.active img {
   transform: scale(1.05);
 }
@@ -156,6 +135,55 @@
       color: #ff5fa2;
       margin-top: 10px;
     }
+    /* 🎬 Cinematic Memory Viewer */
+#cinema {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+#cinemaImg {
+  width: 80%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 20px;
+  animation: cinemaZoom 0.7s ease;
+}
+
+#cinemaText {
+  margin-top: 30px;
+  max-width: 70%;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #f5f5f5;
+  text-align: center;
+  animation: cinemaText 1.5s ease;
+}
+
+#cinema .close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 42px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@keyframes cinemaZoom {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes cinemaText {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
@@ -236,77 +264,41 @@
     This moment lives rent-free in my heart.
   </div>
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo1.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo1.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo1.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo2.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo2.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo2.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo3.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo3.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo3.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo4.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo4.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo4.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo5.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo5.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo5.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo6.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo6.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo6.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo7.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo7.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo7.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo8.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo8.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo8.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo9.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo9.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo9.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo10.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo10.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo10.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo11.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo11.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo11.jpg">
 </div>
-        <div class="photo-card" onclick="toggleText(this)">
-  <img src="photo12.jpg" alt="Our Memory">
-  <div class="overlay">
-    <p>This was the day I realised loving you was effortless.</p>
-  </div>
+        <div class="photo-card" onclick="openMemory('photo12.jpg', 'This was the day I realised loving you was effortless.')">
+  <img src="photo12.jpg">
 </div>
       </div>
     </div>
@@ -374,11 +366,23 @@
     }
   }
 
-  // 📸 Photo overlay toggle
-  function toggleText(card) {
-    card.classList.toggle('active');
-  }
+    function openMemory(img, text) {
+  document.getElementById('cinemaImg').src = img;
+  document.getElementById('cinemaText').innerText = text;
+  document.getElementById('cinema').style.display = 'flex';
+}
+
+function closeMemory() {
+  document.getElementById('cinema').style.display = 'none';
+}
+
 </script>
+  
+<div id="cinema">
+  <span class="close" onclick="closeMemory()">×</span>
+  <img id="cinemaImg">
+  <div id="cinemaText"></div>
+</div>
 
 </body>
 </html>

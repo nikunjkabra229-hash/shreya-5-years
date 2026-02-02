@@ -356,12 +356,18 @@
   <script>
   function unlock() {
     const pass = document.getElementById('pwd').value.trim().toLowerCase();
-    if (pass === 'shery') { // change password if you want
+    if (pass === 'shreya') { // change password if needed
       document.getElementById('lock').style.display = 'none';
+
+      // ▶️ PLAY MUSIC AFTER UNLOCK
+      const music = document.getElementById('bgMusic');
+      music.volume = 0.6; // soft romantic volume
+      music.play();
     } else {
       alert('This page is only for Shreya 💔');
     }
   }
+</script>
 </script>
     const startDate = new Date('2021-03-01'); // CHANGE anniversary date
     const today = new Date();

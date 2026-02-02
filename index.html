@@ -164,7 +164,7 @@
     <h2 style="color:#ff5fa2;font-family:Pacifico;">Only For Shreya 💖</h2>
     <p style="color:#333;">Enter our secret word</p>
     <input id="pwd" type="password" placeholder="Password" style="padding:12px;width:100%;border-radius:10px;border:1px solid #ccc;">
-    <button style="margin-top:15px;width:100%;" onclick="unlock()">Enter</button>
+    <button type="button" style="margin-top:15px;width:100%;" onclick="unlock()">Enter</button>
   </div>
 </div>
 <audio id="bgMusic" loop preload="auto">
@@ -348,38 +348,37 @@
     </footer>
   </div>
   <script>
-    const startDate = new Date('2021-03-01'); // CHANGE to your anniversary date
-    const today = new Date();
-    const diff = today - startDate;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
-  </script>
-  <script>
+  // ⏱️ Counter
+  const startDate = new Date('2021-03-01');
+  const today = new Date();
+  const diff = today - startDate;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById('counter').innerText =
+    days + ' beautiful days together ❤️';
+
+  // 🔓 Unlock + Music
   function unlock() {
     const pass = document.getElementById('pwd').value.trim().toLowerCase();
-    if (pass === 'shery') { // change password if needed
-      document.getElementById('lock').style.display = 'none';
+    const music = document.getElementById('bgMusic');
 
-      // ▶️ PLAY MUSIC AFTER UNLOCK
-      const music = document.getElementById('bgMusic');
-      music.volume = 0.6; // soft romantic volume
-      music.play();
+    if (pass === 'shery') {   // ← your password
+      music.volume = 0.6;
+
+      music.play().catch(err => {
+        console.log('Music blocked:', err);
+      });
+
+      document.getElementById('lock').style.display = 'none';
     } else {
       alert('This page is only for Shreya 💔');
     }
   }
-</script>
-</script>
-    const startDate = new Date('2021-03-01'); // CHANGE anniversary date
-    const today = new Date();
-    const diff = today - startDate;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').innerText = days + ' beautiful days together ❤️';
-  </script>
-  <script>
+
+  // 📸 Photo overlay toggle
   function toggleText(card) {
     card.classList.toggle('active');
   }
 </script>
+
 </body>
 </html>

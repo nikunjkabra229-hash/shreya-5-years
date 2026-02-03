@@ -212,6 +212,26 @@
   text-align: center;
   animation: cinemaText 1.4s ease;
 }
+
+#easterEgg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+  font-size: 2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20000;
+  animation: fadeIn 1.5s ease;
+  padding: 20px;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
     
   </style>
 </head>
@@ -413,6 +433,60 @@ function closeVideo() {
   // restore background music
   document.getElementById('bgMusic').volume = 0.6;
 }
+
+  
+    let idleTimer;
+
+    const easterMessages = [
+  "If you’re still here… I love you ❤️",
+  "Some moments don’t need words… just us.",
+  "I hope you know how special you are to me.",
+  "This page exists because you exist.",
+  "No matter how many times I see you… it’s never enough.",
+  "This is my favourite part of every day — you.",
+  "I’d choose you, every single time."
+];
+
+let messageIndex = 0;
+    
+function startEasterEggTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    const egg = document.getElementById('easterEgg');
+
+    egg.innerText = easterMessages[messageIndex];
+    messageIndex = (messageIndex + 1) % easterMessages.length;
+
+    egg.style.display = 'flex';
+    egg.style.animation = 'fadeIn 1.5s ease';
+  }, 8000); // ⏱️ 8 seconds
+}
+
+function closeEasterEgg() {
+  const egg = document.getElementById('easterEgg');
+  egg.style.animation = 'fadeOut 1.2s ease forwards';
+
+  setTimeout(() => {
+    egg.style.display = 'none';
+    startEasterEggTimer(); // 🔁 allow it to appear again
+  }, 1200);
+}
+
+// restart timer on any interaction
+['click', 'scroll', 'mousemove', 'keydown'].forEach(event => {
+  document.addEventListener(event, () => {
+    clearTimeout(idleTimer);
+    startEasterEggTimer();
+  });
+});
+
+// start timer after password unlock
+const originalUnlock = unlock;
+unlock = function () {
+  originalUnlock();
+  startEasterEggTimer();
+};
+
     
 </script>
   
@@ -426,6 +500,10 @@ function closeVideo() {
   <span class="close" onclick="closeVideo()">×</span>
   <video id="cinemaVid" controls playsinline></video>
   <div id="cinemaVideoText"></div>
+</div>
+
+  <div id="easterEgg" onclick="closeEasterEgg()">
+  If you’re still here… I love you ❤️
 </div>
 
 </body>

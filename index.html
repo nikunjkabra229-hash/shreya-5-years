@@ -442,21 +442,21 @@
 
   // 🔓 Unlock + Music
   function unlock() {
-    const pass = document.getElementById('pwd').value.trim().toLowerCase();
-    const music = document.getElementById('bgMusic');
+  const pass = document.getElementById('pwd').value.trim().toLowerCase();
+  const music = document.getElementById('bgMusic');
 
-    if (pass === 'shery') {   // ← your password
-      music.volume = 0.6;
+  if (pass === 'shery') {
+    music.volume = 0.6;
+    music.play().catch(() => {});
 
-      music.play().catch(err => {
-        console.log('Music blocked:', err);
-      });
+    document.getElementById('lock').style.display = 'none';
 
-      document.getElementById('lock').style.display = 'none';
-    } else {
-      alert('This page is only for Shreya 💔');
-    }
+    // ✅ start easter egg AFTER unlock
+    startEasterEggTimer();
+  } else {
+    alert('This page is only for Shreya 💔');
   }
+}
 
     function openMemory(img, text) {
   document.getElementById('cinemaImg').src = img;
@@ -534,15 +534,6 @@ function closeEasterEgg() {
     startEasterEggTimer();
   });
 });
-
-// start timer after password unlock
-const originalUnlock = unlock;
-unlock = function () {
-  originalUnlock();
-  startEasterEggTimer();
-};
-
-const noBtn = document.getElementById("noBtn");
 
 function yesClicked() {
   launchConfetti();

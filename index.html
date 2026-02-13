@@ -274,6 +274,10 @@
     transform: translateY(110vh) rotate(720deg);
   }
 }
+
+#memoryText {
+  transition: opacity 0.6s ease;
+}
     
   </style>
 </head>
@@ -411,7 +415,8 @@
         to support your dreams, protect your heart,
         and walk beside you — always.
       </p>
-      <button onclick="alert('Happy 5 Years, and more to come Shery ❤️ I love you endlessly')">Click Me</button>
+      <button id="memoryBtn" onclick="showMemory()">Click Me</button>
+      <p id="memoryText" style="margin-top:20px;font-size:1.2rem;display:none;"></p>
     </div>
 
   <div class="card" id="finalQuestion">
@@ -596,6 +601,50 @@ function moveNoButton() {
   noBtn.style.top = `${y}px`;
 
   noBtn.textContent = ["No 🙃", "Nope 😅", "Try again 😜"][Math.floor(Math.random() * 3)];
+}
+
+let memoryClicks = 0;
+
+const memories = [
+  "Happy 5 Years, and more to come Shery ❤️",
+  "Late night calls that never felt long enough 🌙",
+  "Falling asleep on call without saying goodbye 💕",
+  "Good morning texts that never failed ☀️",
+  "I love you more, meri jaan — always ❤️",
+  "One day all this distance will feel worth it ✨"
+];
+
+const btnTexts = ["Again? 😄", "One more? 💖", "Still curious? 😉"];
+
+function showMemory() {
+  const text = document.getElementById("memoryText");
+  const btn = document.getElementById("memoryBtn");
+
+  memoryClicks++;
+
+  const randomMemory =
+    memories[Math.floor(Math.random() * memories.length)];
+
+  text.style.display = "block";
+  text.style.opacity = 0;
+  text.innerHTML = randomMemory;
+
+  setTimeout(() => {
+    text.style.opacity = 1;
+  }, 100);
+
+  if (memoryClicks <= btnTexts.length) {
+    btn.innerText = btnTexts[memoryClicks - 1];
+  }
+
+  // After 3 clicks → reveal final question
+  if (memoryClicks === 3) {
+    setTimeout(() => {
+      document.getElementById("finalQuestion").scrollIntoView({
+        behavior: "smooth"
+      });
+    }, 900);
+  }
 }
     
 </script>

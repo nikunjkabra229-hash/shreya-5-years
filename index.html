@@ -275,8 +275,31 @@
   }
 }
 
-#memoryText {
-  transition: opacity 0.6s ease;
+#memoryOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+
+#memoryPopup {
+  max-width: 80%;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #fff;
+  padding: 30px 40px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.9s ease;
+  font-family: 'Playfair Display', serif;
 }
     
   </style>
@@ -416,7 +439,6 @@
         and walk beside you — always.
       </p>
       <button id="memoryBtn" onclick="showMemory()">Click Me</button>
-      <p id="memoryText" style="margin-top:20px;font-size:1.2rem;display:none;"></p>
     </div>
 
   <div class="card" id="finalQuestion">
@@ -617,7 +639,8 @@ const memories = [
 const btnTexts = ["Again? 😄", "One more? 💖", "Still curious? 😉"];
 
 function showMemory() {
-  const text = document.getElementById("memoryText");
+  const overlay = document.getElementById("memoryOverlay");
+  const popup = document.getElementById("memoryPopup");
   const btn = document.getElementById("memoryBtn");
 
   memoryClicks++;
@@ -625,29 +648,42 @@ function showMemory() {
   const randomMemory =
     memories[Math.floor(Math.random() * memories.length)];
 
-  text.style.display = "block";
-  text.style.opacity = 0;
-  text.innerHTML = randomMemory;
+  overlay.style.display = "flex";
+
+  // Reset animation
+  popup.style.opacity = 0;
+  popup.style.transform = "scale(0.9)";
+  popup.innerHTML = randomMemory;
 
   setTimeout(() => {
-    text.style.opacity = 1;
-  }, 100);
+    popup.style.opacity = 1;
+    popup.style.transform = "scale(1)";
+  }, 50);
 
   if (memoryClicks <= btnTexts.length) {
     btn.innerText = btnTexts[memoryClicks - 1];
   }
 
-  // After 3 clicks → reveal final question
+  // After 3 clicks → hide overlay and move to final question
   if (memoryClicks === 3) {
     setTimeout(() => {
-      document.getElementById("finalQuestion").scrollIntoView({
-        behavior: "smooth"
-      });
-    }, 900);
+      popup.style.opacity = 0;
+      popup.style.transform = "scale(0.9)";
+      setTimeout(() => {
+        overlay.style.display = "none";
+        document.getElementById("finalQuestion").scrollIntoView({
+          behavior: "smooth"
+        });
+      }, 500);
+    }, 2000);
   }
 }
     
-</script>
+document.getElementById("memoryOverlay").addEventListener("click", () => {
+  document.getElementById("memoryOverlay").style.display = "none";
+});
+  
+  </script>
   
 <div id="cinema">
   <span class="close" onclick="closeMemory()">×</span>
@@ -666,6 +702,10 @@ function showMemory() {
 </div>
 
 <div id="confetti-container"></div>
+
+  <div id="memoryOverlay">
+  <div id="memoryPopup"></div>
+</div>
   
 </body>
 </html>

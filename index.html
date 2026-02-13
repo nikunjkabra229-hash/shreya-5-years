@@ -679,10 +679,14 @@ function showMemory() {
   }
 }
     
-document.getElementById("memoryOverlay").addEventListener("click", () => {
-  document.getElementById("memoryOverlay").style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("memoryOverlay");
+
+  overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+  });
 });
-  
+    
   </script>
   
 <div id="cinema">
